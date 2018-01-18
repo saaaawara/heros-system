@@ -22,6 +22,12 @@ module Api
                 @student = Student.find_by(id: params[:id].to_i)
                 render 'api/v1/students/show', formats: 'json', handlers: 'jbuilder'
             end
+            
+            # DELETE /users/1
+            def destroy
+                @student = Student.find_by(id: params[:id].to_i)
+                @student.destroy
+            end
 
             def student_params
                 params.require(:student).permit(:grade, :name)
