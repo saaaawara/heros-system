@@ -5,7 +5,7 @@ module Api
             # GET /students
             def index
                 @students = Student.all
-                render json: @students
+                render 'api/v1/students/index', formats: 'json', handlers: 'jbuilder'
             end
 
             # POST /students
@@ -14,6 +14,7 @@ module Api
                 if @student.save
                     render 'api/v1/students/create', formats: 'json', handlers: 'jbuilder'
                 end
+                    # render json: @student.errors, status: :unprocessable_entity
             end
 
             # GET /students/1
