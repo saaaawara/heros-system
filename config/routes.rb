@@ -8,6 +8,9 @@ Rails.application.routes.draw do
       # student
       resources :students
 
+      # teacher
+      resources :teachers
+
     end
   end
 

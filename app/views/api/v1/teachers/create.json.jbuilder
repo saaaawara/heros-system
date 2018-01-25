@@ -1,0 +1,1 @@
+json.set! :grade, @teacher[:grade]
