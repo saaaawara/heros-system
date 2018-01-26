@@ -30,7 +30,7 @@ module Api
             end
 
             def class_params
-                params.require(:class).permit(:student_id, :teacher_id, date:,
+                params.require(:class).permit(:student_id, :teacher_id, :date,
                                                 :content, :comment, :homework_id)
             end
         end
