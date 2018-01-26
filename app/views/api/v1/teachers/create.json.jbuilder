@@ -1,1 +1,1 @@
-json.set! :grade, @teacher[:grade]
+json.set! :name, @teacher[:name]

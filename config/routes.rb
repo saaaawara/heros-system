@@ -11,6 +11,13 @@ Rails.application.routes.draw do
       # teacher
       resources :teachers
 
+      # homework
+      resources :homeworks
+      post '/pre_homework', to: 'homeworks#pre_homework'
+
+      # class
+      resources :classes
+
     end
   end
 

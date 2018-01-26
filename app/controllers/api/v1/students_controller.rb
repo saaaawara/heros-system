@@ -12,7 +12,11 @@ module Api
             def create 
                 @student = Student.new(student_params)
                 if @student.save
-                    render 'api/v1/students/create', formats: 'json', handlers: 'jbuilder'
+                    # 空の宿題を登録
+                    @homework = Homework.new(student_id: @student[:id])                   
+                    if @homework.save
+                        render 'api/v1/students/create', formats: 'json', handlers: 'jbuilder'
+                    end
                 end
                     # render json: @student.errors, status: :unprocessable_entity
             end
