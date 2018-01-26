@@ -31,8 +31,8 @@ module ManageSystem
     config.api_only = true
 
     # api仕様で作成されなくなっていたHelperを追加するように設定
-    config.generators do |g|
-      g.helper true
-    end
+    # config.generators do |g|
+    #   g.helper true
+    # end
   end
 end
