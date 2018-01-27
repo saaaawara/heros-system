@@ -29,6 +29,30 @@ module Api
                 @class.destroy
             end
 
+            # POST /progress
+            def progress
+                @homework = Homework.new(student_id: params[:student_id],
+                                    teacher_id: params[:teacher_id],
+                                    date: params[:date],
+                                    flag: params[:flag],
+                                    content: params[:homework_content])
+                if @homework.save
+                    @class = Progress.new(student_id: params[:student_id],
+                                        teacher_id: params[:teacher_id],
+                                        date: params[:date],
+                                        content: params[:content],
+                                        comment: params[:comment],
+                                        homework_id: @homework[:id])
+                    if @class.save
+                        render 'api/v1/classes/progress', formats: 'json', handlers: 'jbuilder'
+                    else 
+                        render 'api/v1/classes/noprogress', formats: 'json', handlers: 'jbuilder'
+                    end
+                else
+                        render 'api/v1/classes/noprogress', formats: 'json', handlers: 'jbuilder'
+                end
+            end
+
             def class_params
                 params.require(:class).permit(:student_id, :teacher_id, :date,
                                                 :content, :comment, :homework_id)

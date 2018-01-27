@@ -1,0 +1,2 @@
+# 進捗を報告するとき
+curl -X POST localhost:3000/api/v1/progress -H "Content-Type: application/json" -d '{"student_id": 1,"teacher_id": 1,"date":"2018-01-27","content":"英語keyワーク p.172","comment":"スマホをいじっていた","flag":true,"homework_content":"英語keyワーク 残りのページ"}'

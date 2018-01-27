@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
       # class
       resources :classes
+      post '/progress', to: 'classes#progress'
 
     end
   end
